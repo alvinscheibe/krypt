@@ -31,10 +31,10 @@ const Welcome = () => {
             <div className={`${companyCommonStyles}`}>
               Security
             </div>
-            <div className={`rounded-tr-2xl ${companyCommonStyles}`}>
+            <div className={`md:rounded-tr-2xl ${companyCommonStyles}`}>
               Ethereum
             </div>
-            <div className={`rounded-bl-2xl ${companyCommonStyles}`}>
+            <div className={`md:rounded-bl-2xl ${companyCommonStyles}`}>
               Web 3.0
             </div>
             <div className={`${companyCommonStyles}`}>
@@ -63,6 +63,10 @@ const Welcome = () => {
                 </p>
               </div>
             </div>
+          </div>
+
+          <div className={'p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism'}>
+
           </div>
         </div>
       </div>
