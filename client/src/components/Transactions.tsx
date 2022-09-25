@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import dummyData from '../utils/dummyData';
-import { TransactionContext } from '../context/TransactionContext';
+import { TransactionContext, TransactionType } from '../context/TransactionContext';
 import { shortenAddress } from '../utils/shortenAddress';
 import useFetch from '../hooks/useFetch';
 
-type TransactionCardProps = {id: number, url: string, message: string, timestamp: string, addressFrom: string, amount: string, addressTo: string, keyword?: string};
+//type TransactionCardProps = {id: number, url: string, message: string, timestamp: string, addressFrom: string, amount: string, addressTo: string, keyword: string};
+type TransactionCardProps = TransactionType;
 
 const TransactionCard = (props: TransactionCardProps) => {
   const gifUrl = useFetch(props.keyword?? '');
@@ -17,7 +18,7 @@ const TransactionCard = (props: TransactionCardProps) => {
       'sm:max-w-[300px]'}>
       <div className={'flex flex-col items-center w-full mt-3'}>
         <div className={'w-full mb-6 p-2'}>
-          <a href={'https://ropsten.etherscan.io/address/' + props.addressFrom} target={'_blank'} rel={'noopener noreferrer'}>
+          <a href={'https://goerli.etherscan.io/address/' + props.addressFrom} target={'_blank'} rel={'noopener noreferrer'}>
             <p className={'text-white text-base'}>
               From: {shortenAddress(props.addressFrom)}
             </p>
@@ -40,7 +41,7 @@ const TransactionCard = (props: TransactionCardProps) => {
           )}
         </div>
 
-        <img src={gifUrl || props.url} alt={'gif'} className={'w-full h-64 2xl:h-96 rounded-md shadow-lg object-cover'} />
+        <img src={gifUrl || props?.url} alt={'gif'} className={'w-full h-64 2xl:h-96 rounded-md shadow-lg object-cover'} />
 
         <div className={'bg-black p-3 px-5 w-max rounded-3xl -mt-5 shadow-2xl'}>
           <p className={'text-indigo-700 font-bold'}>
@@ -53,7 +54,7 @@ const TransactionCard = (props: TransactionCardProps) => {
 };
 
 const Transactions = () => {
-  const { currentAccount } = useContext(TransactionContext);
+  const { currentAccount, transactions } = useContext(TransactionContext);
 
   return (
     <div className={'flex w-full justify-center items-center 2xl:px-20 gradient-bg-transactions'}>
@@ -69,7 +70,7 @@ const Transactions = () => {
         )}
 
         <div className={'flex flex-wrap justify-center items-center items-center mt-10'}>
-          {dummyData.reverse().map((transaction, index) => (
+          {transactions.reverse().map((transaction, index) => (
             <TransactionCard key={index} {...transaction} />
           ))}
         </div>
