@@ -2,10 +2,13 @@ import React, { useContext } from 'react';
 import dummyData from '../utils/dummyData';
 import { TransactionContext } from '../context/TransactionContext';
 import { shortenAddress } from '../utils/shortenAddress';
+import useFetch from '../hooks/useFetch';
 
-type TransactionCardProps = {id: number, url: string, message: string, timestamp: string, addressFrom: string, amount: string, addressTo: string};
+type TransactionCardProps = {id: number, url: string, message: string, timestamp: string, addressFrom: string, amount: string, addressTo: string, keyword?: string};
 
 const TransactionCard = (props: TransactionCardProps) => {
+  const gifUrl = useFetch(props.keyword?? '');
+
   return (
     <div className={'bg-gray-900 m-4 flex flex-1 flex-col p-3 rounded-md hover:shadow-2xl ' +
       '2xl:min-w-[450px] ' +
@@ -26,6 +29,22 @@ const TransactionCard = (props: TransactionCardProps) => {
           </a>
           <p className={'text-white text-base'}>
             Amount: {props.amount} ETH
+          </p>
+          {props.message && (
+            <>
+              <br />
+              <p className={'text-white text-base'}>
+                Message: {props.message}
+              </p>
+            </>
+          )}
+        </div>
+
+        <img src={gifUrl || props.url} alt={'gif'} className={'w-full h-64 2xl:h-96 rounded-md shadow-lg object-cover'} />
+
+        <div className={'bg-black p-3 px-5 w-max rounded-3xl -mt-5 shadow-2xl'}>
+          <p className={'text-indigo-700 font-bold'}>
+            {props.timestamp}
           </p>
         </div>
       </div>
