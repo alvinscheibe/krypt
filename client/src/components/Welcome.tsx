@@ -16,7 +16,7 @@ type InputProps = {
   placeholder: string;
 };
 
-const companyCommonStyles = 'min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white';
+const companyCommonStyles = 'min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-md font-bold text-white hover:bg-indigo-700 duration-500 ease-in-out';
 
 const Input = ({ name, type, value, handleChange, placeholder }: InputProps) => (
   <input
@@ -116,7 +116,7 @@ const Welcome = () => {
               <button
                 type={'button'}
                 onClick={handleSubmit}
-                className={'text-white w-full mt-2 border-[1px] p-2 border-indigo-700 rounded-full cursor-pointer' }>
+                className={'text-white w-full mt-2 border-[1px] p-2 border-indigo-700 rounded-full cursor-pointer hover:bg-indigo-700 duration-500 ease-in-out'}>
                 Send now
               </button>
             )}

@@ -29,7 +29,7 @@ const Navbar = () => {
         {["Market", "Exchange", "Tutorials", "Wallets"].map((item, index) => (
           <NavbarItem key={item + index} title={item} />
         ))}
-        <li className="bg-indigo-700 py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-indigo-800">
+        <li className="bg-indigo-700 py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-indigo-800 duration-500 ease-in-out">
           Login
         </li>
       </ul>

@@ -4,7 +4,6 @@ import { TransactionContext, TransactionType } from '../context/TransactionConte
 import { shortenAddress } from '../utils/shortenAddress';
 import useFetch from '../hooks/useFetch';
 
-//type TransactionCardProps = {id: number, url: string, message: string, timestamp: string, addressFrom: string, amount: string, addressTo: string, keyword: string};
 type TransactionCardProps = TransactionType;
 
 const TransactionCard = (props: TransactionCardProps) => {
@@ -19,12 +18,12 @@ const TransactionCard = (props: TransactionCardProps) => {
       <div className={'flex flex-col items-center w-full mt-3'}>
         <div className={'w-full mb-6 p-2'}>
           <a href={'https://goerli.etherscan.io/address/' + props.addressFrom} target={'_blank'} rel={'noopener noreferrer'}>
-            <p className={'text-white text-base'}>
+            <p className={'text-white text-base hover:underline duration-500 ease-in-out'}>
               From: {shortenAddress(props.addressFrom)}
             </p>
           </a>
           <a href={'https://ropsten.etherscan.io/address/' + props.addressTo} target={'_blank'} rel={'noopener noreferrer'}>
-            <p className={'text-white text-base'}>
+            <p className={'text-white text-base hover:underline'}>
               To: {shortenAddress(props.addressTo)}
             </p>
           </a>
