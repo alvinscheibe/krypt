@@ -23,7 +23,7 @@
 * [Vite](https://vitejs.dev/)
 * [React](https://reactjs.org/)
 * [Tailwind CSS](https://tailwindcss.com/)
-* [Solidity](https://solidity.org/)
+* [Solidity](https://soliditylang.org/)
 * [Hardhat](https://hardhat.org/)
 * [TypeScript](https://www.typescriptlang.org/)
 
