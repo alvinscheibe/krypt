@@ -3,7 +3,7 @@
 <div align="center">
   <h3 align="center">Krypt - Web 3.0</h3>
   <p align="center">
-    Send ETH Goerli network.
+    Send ETH in Goerli network.
     <br />
     <br />
     <a href="#">View Example</a>
