@@ -35,8 +35,6 @@ const Welcome = () => {
   const handleSubmit = (/*event: React.FormEvent<HTMLFormElement>*/) => {
     const { addressTo, amount, keyword, message } = formData;
 
-    //event.preventDefault();
-
     if (!addressTo || !amount || !keyword || !message) return;
 
     sendTransaction();
